@@ -3,13 +3,14 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
-using AirVM.Models;
-using AirVM.Engine;
+using VMNexus.Models;
+using VMNexus.Engine;
 
-namespace AirVM.UI
+namespace VMNexus.UI
 {
     public partial class ConsoleWindow : Window
     {
@@ -106,12 +107,12 @@ namespace AirVM.UI
             };
             serialTimer.Start();
 
-            VNCViewer.OnConnected = () =>
+            VNCViewer.OnConnected += () =>
             {
                 AppendLog("[VNC] Display connected");
                 StatusBar.Text = $"Running ({VNCViewer.FramebufferWidth}x{VNCViewer.FramebufferHeight})";
             };
-            VNCViewer.OnDisconnected = () => AppendLog("[VNC] Display disconnected");
+            VNCViewer.OnDisconnected += () => AppendLog("[VNC] Display disconnected");
         }
 
         private void OnVMStopped(int exitCode)

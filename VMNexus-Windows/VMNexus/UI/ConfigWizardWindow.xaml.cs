@@ -4,9 +4,9 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using AirVM.Models;
+using VMNexus.Models;
 
-namespace AirVM.UI
+namespace VMNexus.UI
 {
     public partial class ConfigWizardWindow : Window
     {
