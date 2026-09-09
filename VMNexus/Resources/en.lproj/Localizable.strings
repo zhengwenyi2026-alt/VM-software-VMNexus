@@ -1,0 +1,316 @@
+/* VMNexus - English Localization */
+
+/* App */
+"app.name" = "VMNexus";
+"app_name" = "VMNexus";
+"app.subtitle" = "Virtual Machine Library";
+"app_subtitle" = "Virtual Machine Manager";
+"app.welcome" = "Welcome to VMNexus";
+"welcome_title" = "Welcome to VMNexus";
+"app.welcome.desc" = "Select a virtual machine from the sidebar, or create a new one.\nSupports architectures from 8-bit AVR to 64-bit x86_64 and beyond.";
+"welcome_subtitle" = "Create and manage virtual machines\nfor various operating systems and architectures.";
+"create_new_vm" = "+ Create New VM";
+"open_existing_vm" = "Open Existing VM";
+"delete_vm_confirm" = "This action cannot be undone. The virtual machine and its data will be permanently removed.";
+"my_virtual_machines" = "MY VIRTUAL MACHINES";
+
+/* Menu */
+"menu.about" = "About VMNexus";
+"menu.settings" = "Settings...";
+"menu.hide" = "Hide VMNexus";
+"menu.hideOthers" = "Hide Others";
+"menu.showAll" = "Show All";
+"menu.quit" = "Quit VMNexus";
+"menu.file" = "File";
+"menu.newVM" = "New Virtual Machine...";
+"menu.openVM" = "Open Virtual Machine...";
+"menu.close" = "Close";
+"menu.edit" = "Edit";
+"menu.undo" = "Undo";
+"menu.redo" = "Redo";
+"menu.cut" = "Cut";
+"menu.copy" = "Copy";
+"menu.paste" = "Paste";
+"menu.selectAll" = "Select All";
+"menu.vm" = "VM";
+"menu.start" = "Start";
+"menu.pause" = "Pause";
+"menu.resume" = "Resume";
+"menu.stop" = "Stop";
+"menu.vmSettings" = "Settings...";
+"menu.refreshLibrary" = "Refresh Library";
+"menu.window" = "Window";
+"menu.minimize" = "Minimize";
+"menu.zoom" = "Zoom";
+"menu.bringToFront" = "Bring All to Front";
+"menu.help" = "Help";
+"menu.documentation" = "VMNexus Documentation";
+
+/* Library Window */
+"library.title" = "Virtual Machine Library";
+"library.startVM" = "Start VM";
+"library.noVMs" = "No virtual machines";
+"library.search" = "Search VMs";
+"library.createVM" = "Create New VM";
+"library.details" = "Details";
+"library.newVMName" = "New Virtual Machine";
+
+/* VM Status */
+"status.stopped" = "Stopped";
+"status.starting" = "Starting...";
+"status.running" = "Running";
+"status.paused" = "Paused";
+"status.stopping" = "Stopping...";
+"status.error" = "Error";
+
+/* Config Window */
+"config.title.new" = "Create New Virtual Machine";
+"config.title.edit" = "Settings";
+"config.heading.new" = "New Virtual Machine";
+"config.heading.edit" = "Virtual Machine Settings";
+"config.vmName" = "VM Name:";
+"config.architecture" = "Architecture:";
+"config.machine" = "Machine:";
+"config.cpu" = "CPU:";
+"config.cpuCores" = "CPU Cores:";
+"config.memory" = "Memory:";
+"config.disk" = "Storage";
+"config.diskSize" = "Disk Size:";
+"config.noDisk" = "No Disk";
+"config.network" = "Network:";
+"config.display" = "Display:";
+"config.acceleration" = "Enable Hardware Acceleration (HVF)";
+"config.audio" = "Enable Audio";
+"config.usb" = "Enable USB";
+"config.notes" = "Notes:";
+"config.create" = "Create";
+"config.save" = "Save";
+"config.cancel" = "Cancel";
+"config.back" = "Back";
+"config.next" = "Next";
+"config.step.overview" = "Overview";
+"config.step.hardware" = "Hardware";
+"config.step.storage" = "Storage";
+"config.step.media" = "Boot Media";
+"config.step.network" = "Network & Sharing";
+"config.step.summary" = "Summary";
+"config.engine" = "Engine";
+
+/* Modes */
+"mode_simple" = "Simple";
+"mode_standard" = "Standard";
+"mode_advanced" = "Advanced";
+
+/* Console Window */
+"console.title" = "Console";
+"console.start" = "Start";
+"console_start" = "Start";
+"console.stop" = "Stop";
+"console_stop" = "Stop";
+"console.pause" = "Pause";
+"console_pause" = "Pause";
+"console.resume" = "Resume";
+"console_resume" = "Resume";
+"console.screenshot" = "Screenshot";
+"console_capture" = "Capture";
+"console_fullscreen" = "Fullscreen";
+"console_media" = "Media";
+"console.ready" = "Ready";
+"console.starting" = "Starting virtual machine...";
+"console.stopping" = "Stopping virtual machine...";
+"console.started" = "Virtual machine started successfully.";
+"console.stopped" = "Virtual machine stopped (exit code: %ld).";
+"console.resumed" = "Resumed";
+"console.paused" = "Paused";
+"console.screenshotSaved" = "Screenshot saved to: %@";
+
+/* Alerts */
+"alert.qemuNotFound.title" = "QEMU Not Found";
+"alert.qemuNotFound.message" = "QEMU is required to run virtual machines.\n\nInstall it with: brew install qemu";
+"alert.deleteVM.title" = "Delete Virtual Machine?";
+"alert.deleteVM.message" = "This will permanently delete the virtual machine and all its data.";
+"alert.delete" = "Delete";
+"alert.ok" = "OK";
+
+/* VM Detail */
+"detail.architecture" = "Architecture: %@";
+"detail.cpu" = "CPU: %@ (%ld cores)";
+"detail.memory" = "Memory: %ld MB";
+"detail.disk" = "Disk: %ld GB";
+"detail.network" = "Network: %@";
+"detail.status" = "Status: %@";
+
+/* File Pickers */
+"config.bootISO" = "Boot ISO:";
+"config.cdromImage" = "CD-ROM Image:";
+"config.diskImage" = "Disk Image:";
+"config.customBIOS" = "Custom BIOS:";
+"config.browse" = "Browse...";
+"config.clear" = "Clear";
+"config.none" = "(None)";
+"config.useExistingDisk" = "Use Existing Disk";
+"config.isoFilterTitle" = "Disk Images";
+"config.allFiles" = "All Files";
+
+/* Open Panel */
+"openPanel.message" = "Select an VMNexus virtual machine bundle (.vmnexus)";
+
+/* ROM File (Classic Mac engines) */
+"config.romFile" = "ROM File:";
+"config.romFile.placeholder" = "ROM file is required";
+"config.romFile.section" = "Classic Mac Configuration";
+"alert.romRequired.title" = "ROM File Required";
+"alert.romRequired.message" = "Emulating a Classic Mac requires a ROM file.\nPlease specify the ROM file path in VM settings.";
+
+/* Floppy Disks */
+"config.floppyA" = "Floppy A:";
+"config.floppyB" = "Floppy B:";
+
+/* Shared Folders */
+"config.sharedFolders" = "Shared Folders";
+"config.folderName" = "Name";
+"config.folderPath" = "Host Path";
+"config.addFolder" = "Add...";
+"config.removeFolder" = "Remove";
+"config.selectFolder" = "Select Folder to Share";
+
+/* Console Media Menu */
+"console.media" = "Media";
+"console.cdrom" = "CD-ROM";
+"console.floppy" = "Floppy Disks";
+"console.changeCDROM" = "Change CD-ROM Image...";
+"console.ejectCDROM" = "Eject CD-ROM";
+"console.changeFloppyA" = "Change Floppy A...";
+"console.ejectFloppyA" = "Eject Floppy A";
+"console.changeFloppyB" = "Change Floppy B...";
+"console.ejectFloppyB" = "Eject Floppy B";
+"console.usePhysicalOptical" = "Use Physical Optical Drive";
+"console.usePhysicalFloppy" = "Use Physical Floppy Drive";
+"console.selectMedia" = "Select Media";
+
+/* Architecture Names */
+"architecture.x86" = "x86 (32-bit)";
+"architecture.x86_64" = "x86_64 (64-bit)";
+"architecture.arm" = "ARM (32-bit)";
+"architecture.aarch64" = "ARM64 (AArch64)";
+"architecture.mips" = "MIPS (32-bit)";
+"architecture.mips64" = "MIPS64";
+"architecture.mipsel" = "MIPSel (32-bit LE)";
+"architecture.mips64el" = "MIPS64el";
+"architecture.ppc" = "PowerPC (32-bit)";
+"architecture.ppc64" = "PowerPC64";
+"architecture.riscv32" = "RISC-V (32-bit)";
+"architecture.riscv64" = "RISC-V (64-bit)";
+"architecture.s390x" = "s390x";
+"architecture.sparc" = "SPARC (32-bit)";
+"architecture.sparc64" = "SPARC64";
+"architecture.m68k" = "Motorola 68000";
+"architecture.alpha" = "DEC Alpha";
+"architecture.hppa" = "HP PA-RISC";
+"architecture.sh4" = "SuperH SH-4";
+"architecture.sh4eb" = "SuperH SH-4 (BE)";
+"architecture.microblaze" = "MicroBlaze";
+"architecture.microblazeel" = "MicroBlaze EL";
+"architecture.or1k" = "OpenRISC 1000";
+"architecture.loongarch64" = "LoongArch64";
+"architecture.xtensa" = "Xtensa";
+"architecture.xtensaeb" = "Xtensa (BE)";
+"architecture.tricore" = "TriCore";
+"architecture.avr" = "AVR (8-bit)";
+"architecture.rx" = "RX (32-bit)";
+"architecture.classicmac68k" = "Classic Mac (68000)";
+"architecture.mac68kii" = "Mac 68k II";
+"architecture.mos6502" = "MOS 6502 (Commodore)";
+"architecture.z80" = "Z80 (MSX / Spectrum)";
+"architecture.multisystem" = "Multi-System";
+"architecture.unknown" = "Unknown";
+
+/* Engine Messages */
+"engine.notFound" = "%@ not found. Please install it first.";
+"engine.romRequired" = "ROM file required for this emulator.";
+
+/* Wizard Steps */
+"step_basic" = "Basic";
+"step_hardware" = "Hardware";
+"step_storage" = "Storage";
+"step_network" = "Network";
+"step_display" = "Display";
+"step_summary" = "Summary";
+
+/* Network Modes */
+"network_nat" = "NAT (user)";
+"network_bridge" = "Bridge";
+"network_hostonly" = "Host-only";
+"network_modem" = "Virtual Modem (dial-up)";
+"network_terminal" = "Terminal";
+"network_none" = "none";
+
+/* Status Bar */
+"statusbar.format" = "%lu VMs | %@";
+
+/* Sidebar */
+"sidebar.devices" = "Devices";
+"sidebar.myComputer" = "My Computer";
+"sidebar.favorites" = "Favorites";
+
+/* Welcome View */
+"welcome.createVM" = "Create a New\nVirtual Machine";
+"welcome.openVM" = "Open a\nVirtual Machine";
+"welcome.connectRemote" = "Connect to a\nRemote Server";
+
+/* Detail View */
+"detail.hardware" = "HARDWARE";
+"detail.processor" = "Processor";
+"detail.memory" = "Memory";
+"detail.hardDisk" = "Hard Disk";
+"detail.network" = "Network";
+"detail.display" = "Display";
+"detail.soundCard" = "Sound Card";
+"detail.usb" = "USB";
+"detail.acceleration" = "Acceleration";
+"detail.engine" = "Engine";
+"detail.notes" = "NOTES";
+"detail.noNotes" = "No notes";
+"detail.start" = "Start";
+"detail.stop" = "Stop";
+"detail.settings" = "Settings";
+"detail.disabled" = "Disabled";
+"detail.noDisk" = "No disk";
+"detail.none" = "none";
+"detail.accelHVF" = "HVF (Hardware)";
+"detail.accelTCG" = "TCG (Software)";
+"detail.accelDisabled" = "Disabled";
+
+/* Batch Operations */
+"batch.start" = "Batch Start";
+"batch.stop" = "Batch Stop";
+"batch.delete" = "Batch Delete";
+"batch.deleteConfirm" = "Delete %lu selected virtual machines?";
+
+/* Disk Manager */
+"diskManager.title" = "Disk Manager";
+"diskManager.resize" = "Resize";
+"diskManager.compress" = "Compress";
+"diskManager.convert" = "Convert";
+"diskManager.selectDisk" = "Select Disk Image";
+
+/* Port Forwarding */
+"config.portForwarding" = "Port Forwarding";
+"config.portForwarding.placeholder" = "tcp:2222:22, tcp:8080:80";
+
+/* Clone */
+"clone.full" = "Full Clone";
+"clone.full.message" = "Create a complete independent copy of this virtual machine?";
+
+/* Auto Start */
+"autoStart.enabled" = "Auto Start on Launch";
+
+/* Settings */
+"settings.title" = "Settings";
+"settings.general" = "General";
+"settings.advanced" = "Advanced";
+"settings.qemuPath" = "QEMU Path:";
+"settings.vmDirectory" = "VM Directory:";
+"settings.autoStart" = "Auto-start VMs on login";
+"settings.debugMode" = "Enable debug mode";
+"settings.experimental" = "Enable experimental features";
