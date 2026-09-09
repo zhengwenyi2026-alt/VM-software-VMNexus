@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 using System.IO;
 
-namespace AirVM.Models
+namespace VMNexus.Models
 {
     public enum VMStatus
     {

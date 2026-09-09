@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace AirVM
+namespace VMNexus
 {
     public partial class App : Application
     {

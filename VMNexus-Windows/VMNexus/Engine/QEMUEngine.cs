@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading;
-using AirVM.Models;
+using VMNexus.Models;
 
-namespace AirVM.Engine
+namespace VMNexus.Engine
 {
     /// <summary>
     /// QEMU process manager — mirrors macOS AirVMQEMUProcess.

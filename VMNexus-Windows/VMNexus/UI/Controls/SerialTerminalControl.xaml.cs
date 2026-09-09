@@ -10,7 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
 
-namespace AirVM.UI.Controls
+namespace VMNexus.UI.Controls
 {
     public partial class SerialTerminalControl : UserControl, IDisposable
     {

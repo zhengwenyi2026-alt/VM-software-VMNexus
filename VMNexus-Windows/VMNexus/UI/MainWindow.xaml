@@ -1,7 +1,7 @@
-<Window x:Class="AirVM.UI.MainWindow"
+<Window x:Class="VMNexus.UI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="AirVM" Width="1060" Height="700" MinWidth="820" MinHeight="560"
+        Title="VMNexus" Width="1060" Height="700" MinWidth="820" MinHeight="560"
         WindowStartupLocation="CenterScreen" Background="White">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -14,7 +14,7 @@
             <DockPanel>
                 <!-- App Title -->
                 <StackPanel DockPanel.Dock="Top" Margin="20,16,20,0">
-                    <TextBlock Text="AirVM" FontSize="22" FontWeight="Bold" Foreground="#1A1A2E"/>
+                    <TextBlock Text="VMNexus" FontSize="22" FontWeight="Bold" Foreground="#1A1A2E"/>
                     <TextBlock Text="Virtual Machine Manager" FontSize="11" Foreground="#999" Margin="0,2,0,12"/>
                     <TextBox x:Name="SearchBox" Padding="6,4" BorderThickness="1" BorderBrush="#DDD"
                              TextChanged="SearchBox_TextChanged" Tag="Search VMs...">
@@ -132,7 +132,7 @@
             <!-- Welcome View (empty state) -->
             <StackPanel x:Name="WelcomePanel" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Visible">
                 <TextBlock Text="🖥" FontSize="64" HorizontalAlignment="Center" Opacity="0.3" Margin="0,0,0,16"/>
-                <TextBlock Text="Welcome to AirVM" FontSize="26" FontWeight="Bold" HorizontalAlignment="Center" Foreground="#333"/>
+                <TextBlock Text="Welcome to VMNexus" FontSize="26" FontWeight="Bold" HorizontalAlignment="Center" Foreground="#333"/>
                 <TextBlock Text="Create and manage virtual machines&#x0a;for various operating systems and architectures."
                            FontSize="13" Foreground="#999" TextAlignment="Center" Margin="0,8,0,24"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
