@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
-namespace AirVM.UI.Controls
+namespace VMNexus.UI.Controls
 {
     /// <summary>
     /// VNC (RFB 3.8) client WPF control — connects to QEMU VNC server
@@ -363,9 +363,9 @@ namespace AirVM.UI.Controls
 
         protected override void OnMouseUp(MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Released) _mouseMask &= (byte)~1;
-            if (e.RightButton == MouseButtonState.Released) _mouseMask &= (byte)~4;
-            if (e.MiddleButton == MouseButtonState.Released) _mouseMask &= (byte)~2;
+            if (e.LeftButton == MouseButtonState.Released) _mouseMask &= unchecked((byte)~1);
+            if (e.RightButton == MouseButtonState.Released) _mouseMask &= unchecked((byte)~4);
+            if (e.MiddleButton == MouseButtonState.Released) _mouseMask &= unchecked((byte)~2);
             SendPointer(e);
         }
 

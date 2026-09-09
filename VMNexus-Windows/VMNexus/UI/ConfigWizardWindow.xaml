@@ -1,4 +1,4 @@
-<Window x:Class="AirVM.UI.ConfigWizardWindow"
+<Window x:Class="VMNexus.UI.ConfigWizardWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Configure Virtual Machine" Width="780" Height="560" MinWidth="680" MinHeight="480"
@@ -124,17 +124,19 @@
                 </StackPanel>
 
                 <!-- Step 5: Summary -->
-                <ScrollViewer x:Name="StepSummary" Visibility="Collapsed" VerticalScrollBarVisibility="Auto">
-                    <StackPanel>
-                        <TextBlock Text="Summary" FontSize="20" FontWeight="Bold" Margin="0,0,0,16"/>
-                        <Border Style="{StaticResource CardBorder}">
-                            <TextBlock x:Name="SummaryText" FontSize="12" Foreground="#333" TextWrapping="Wrap" LineHeight="22"/>
-                        </Border>
-                        <TextBlock Text="Notes (optional)" FontSize="12" Foreground="#666" Margin="0,12,0,4"/>
-                        <TextBox x:Name="NotesBox" AcceptsReturn="True" Height="80" Padding="8,6" FontSize="12"
-                                 TextWrapping="Wrap" BorderBrush="#DDD"/>
-                    </StackPanel>
-                </ScrollViewer>
+                <StackPanel x:Name="StepSummary" Visibility="Collapsed">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="400">
+                        <StackPanel>
+                            <TextBlock Text="Summary" FontSize="20" FontWeight="Bold" Margin="0,0,0,16"/>
+                            <Border Style="{StaticResource CardBorder}">
+                                <TextBlock x:Name="SummaryText" FontSize="12" Foreground="#333" TextWrapping="Wrap" LineHeight="22"/>
+                            </Border>
+                            <TextBlock Text="Notes (optional)" FontSize="12" Foreground="#666" Margin="0,12,0,4"/>
+                            <TextBox x:Name="NotesBox" AcceptsReturn="True" Height="80" Padding="8,6" FontSize="12"
+                                     TextWrapping="Wrap" BorderBrush="#DDD"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </StackPanel>
             </Grid>
         </Border>
 
