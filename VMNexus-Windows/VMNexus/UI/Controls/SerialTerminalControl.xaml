@@ -1,4 +1,4 @@
-<UserControl x:Class="AirVM.UI.Controls.SerialTerminalControl"
+<UserControl x:Class="VMNexus.UI.Controls.SerialTerminalControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="#141420">
