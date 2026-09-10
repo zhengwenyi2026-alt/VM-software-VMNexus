@@ -33,14 +33,13 @@ targets:
     platform: macOS
     sources:
       - path: VMNexus/Sources
+      - path: VMNexus/Assets.xcassets
       - path: VMNexus/Resources/en.lproj
         buildPhase: resources
         type: folder
       - path: VMNexus/Resources/zh-Hans.lproj
         buildPhase: resources
         type: folder
-    resources:
-      - path: VMNexus/Assets.xcassets
     settings:
       base:
         INFOPLIST_FILE: VMNexus/Resources/Info.plist
