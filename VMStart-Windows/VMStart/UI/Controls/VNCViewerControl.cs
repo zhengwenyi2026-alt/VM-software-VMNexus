@@ -378,7 +378,7 @@ namespace VMStart.UI.Controls
         {
             _mouseMask |= (byte)(e.Delta > 0 ? 8 : 16);
             SendPointer(e);
-            _mouseMask &= (byte)~(8 | 16);
+            _mouseMask &= unchecked((byte)~(8 | 16));
             SendPointer(e);
         }
 
