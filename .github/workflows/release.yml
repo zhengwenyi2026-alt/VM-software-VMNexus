@@ -1,4 +1,4 @@
-name: Build and Release VMNexus
+name: Build and Release VMStart
 
 on:
   push:
@@ -25,10 +25,10 @@ jobs:
       - name: Generate Xcode Project
         run: xcodegen generate --spec project.yml
 
-      - name: Build VMNexus
+      - name: Build VMStart
         run: |
-          xcodebuild -project VMNexus.xcodeproj \
-            -scheme VMNexus \
+          xcodebuild -project VMStart.xcodeproj \
+            -scheme VMStart \
             -configuration Release \
             -derivedDataPath build/DerivedData \
             CODE_SIGN_IDENTITY="-" \
@@ -39,31 +39,31 @@ jobs:
       - name: Package DMG
         run: |
           mkdir -p dmg
-          APP_PATH=$(find build/DerivedData/Build/Products/Release -name "VMNexus.app" -maxdepth 1 | head -1)
+          APP_PATH=$(find build/DerivedData/Build/Products/Release -name "VMStart.app" -maxdepth 1 | head -1)
           DMG_TEMP=$(mktemp -d)
           cp -R "$APP_PATH" "$DMG_TEMP/"
           ln -s /Applications "$DMG_TEMP/Applications"
           VERSION=${GITHUB_REF_NAME:-1.0.0}
-          hdiutil create -volname "VMNexus" \
+          hdiutil create -volname "VMStart" \
             -srcfolder "$DMG_TEMP" \
             -ov -format UDZO \
-            "dmg/VMNexus-${VERSION}.dmg"
+            "dmg/VMStart-${VERSION}.dmg"
           rm -rf "$DMG_TEMP"
 
       - name: Upload DMG Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: VMNexus-DMG
-          path: dmg/VMNexus-*.dmg
+          name: VMStart-DMG
+          path: dmg/VMStart-*.dmg
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: dmg/VMNexus-*.dmg
-          name: "VMNexus ${{ github.ref_name }}"
+          files: dmg/VMStart-*.dmg
+          name: "VMStart ${{ github.ref_name }}"
           body: |
-            ## VMNexus ${{ github.ref_name }}
+            ## VMStart ${{ github.ref_name }}
             
             ### What's New
             - QEMU-based virtual machine manager for macOS
@@ -78,9 +78,9 @@ jobs:
             
             ### Installation
             1. Download the DMG file
-            2. Drag VMNexus.app to Applications
+            2. Drag VMStart.app to Applications
             3. Install QEMU: `brew install qemu`
-            4. Launch VMNexus
+            4. Launch VMStart
             
             ### License
             GPLv2 - See LICENSE file
@@ -100,26 +100,26 @@ jobs:
 
       - name: Build Windows EXE
         run: |
-          cd VMNexus-Windows/VMNexus
+          cd VMStart-Windows/VMStart
           dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o ../../publish
 
       - name: Upload EXE Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: VMNexus-Windows
-          path: publish/VMNexus.exe
+          name: VMStart-Windows
+          path: publish/VMStart.exe
 
       - name: Create Windows Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: publish/VMNexus.exe
-          name: "VMNexus ${{ github.ref_name }}"
+          files: publish/VMStart.exe
+          name: "VMStart ${{ github.ref_name }}"
           body: |
-            ## VMNexus ${{ github.ref_name }} - Windows
+            ## VMStart ${{ github.ref_name }} - Windows
             
             ### Installation
-            1. Download VMNexus.exe
+            1. Download VMStart.exe
             2. Run the executable
             3. Follow the setup wizard
             

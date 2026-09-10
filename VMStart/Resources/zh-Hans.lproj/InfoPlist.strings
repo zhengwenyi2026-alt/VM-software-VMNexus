@@ -1,0 +1,5 @@
+CFBundleName = "VMStart";
+CFBundleDisplayName = "VMStart";
+NSHumanReadableCopyright = "版权所有 (c) 2024 zhengwenyi2026-alt。基于 GPLv2 许可证发布。";
+CFBundleDocumentTypes.0.CFBundleTypeName = "VMStart 虚拟机";
+UTExportedTypeDeclarations.0.UTTypeDescription = "VMStart 虚拟机";
