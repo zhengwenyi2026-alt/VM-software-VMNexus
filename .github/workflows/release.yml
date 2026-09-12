@@ -71,30 +71,97 @@ jobs:
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: dmg/VMStart-*.dmg
+          files: |
+            dmg/VMStart-*.dmg
           name: "VMStart ${{ github.ref_name }}"
           body: |
             ## VMStart ${{ github.ref_name }}
             
+            ### Downloads
+            - **macOS (Apple Silicon)**: VMStart-${{ github.ref_name }}.dmg
+            - **macOS (Intel)**: VMStart-${{ github.ref_name }}-Intel.dmg
+            - **Windows (x86_64)**: VMStart.exe
+            
             ### What's New
-            - QEMU-based virtual machine manager for macOS
+            - QEMU-based virtual machine manager for macOS and Windows
             - Support for 29+ architectures (8-bit AVR to 64-bit x86_64)
             - Native macOS app with Objective-C/Swift frontend
             - Virtual machine library management
             - Built-in console with QEMU monitor access
+            - QEMU engine included (no need to install separately)
             
             ### Requirements
-            - macOS 14.0 or later
+            - macOS 14.0 or later (Apple Silicon or Intel)
+            - Windows 10/11 (64-bit)
             
             ### Installation
-            1. Download the DMG file
-            2. Drag VMStart.app to Applications
-            3. Launch VMStart (QEMU is included)
+            1. Download the appropriate file for your platform
+            2. macOS: Drag VMStart.app to Applications
+            3. Windows: Run VMStart.exe
+            4. Launch VMStart (QEMU is included on macOS)
             
             ### License
             GPLv2 - See LICENSE file
           draft: false
           prerelease: false
+
+  build-intel:
+    runs-on: macos-13
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_15.0.app
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Install QEMU
+        run: brew install qemu
+
+      - name: Generate Xcode Project
+        run: xcodegen generate --spec project.yml
+
+      - name: Build VMStart (Intel)
+        run: |
+          xcodebuild -project VMStart.xcodeproj \
+            -scheme VMStart \
+            -configuration Release \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGNING_REQUIRED=NO \
+            ONLY_ACTIVE_ARCH=NO \
+            ARCHS=x86_64 \
+            clean build
+
+      - name: Package DMG (Intel)
+        run: |
+          mkdir -p dmg
+          APP_PATH=$(find build/DerivedData/Build/Products/Release -name "VMStart.app" -maxdepth 1 | head -1)
+          DMG_TEMP=$(mktemp -d)
+          cp -R "$APP_PATH" "$DMG_TEMP/"
+          
+          # Copy QEMU binaries into app bundle
+          ENGINES_DIR="$DMG_TEMP/VMStart.app/Contents/MacOS/engines"
+          mkdir -p "$ENGINES_DIR"
+          cp /usr/local/bin/qemu-system-* "$ENGINES_DIR/"
+          cp /usr/local/bin/qemu-img "$ENGINES_DIR/"
+          chmod +x "$ENGINES_DIR/"*
+          
+          ln -s /Applications "$DMG_TEMP/Applications"
+          VERSION=${GITHUB_REF_NAME:-1.0.0}
+          hdiutil create -volname "VMStart" \
+            -srcfolder "$DMG_TEMP" \
+            -ov -format UDZO \
+            "dmg/VMStart-${VERSION}-Intel.dmg"
+          rm -rf "$DMG_TEMP"
+
+      - name: Upload DMG Artifact (Intel)
+        uses: actions/upload-artifact@v4
+        with:
+          name: VMStart-DMG-Intel
+          path: dmg/VMStart-*-Intel.dmg
 
   build-windows:
     runs-on: windows-latest
