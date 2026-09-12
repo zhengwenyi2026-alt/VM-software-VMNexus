@@ -45,6 +45,14 @@ jobs:
           APP_PATH=$(find build/DerivedData/Build/Products/Release -name "VMStart.app" -maxdepth 1 | head -1)
           DMG_TEMP=$(mktemp -d)
           cp -R "$APP_PATH" "$DMG_TEMP/"
+          
+          # Copy QEMU binaries into app bundle
+          ENGINES_DIR="$DMG_TEMP/VMStart.app/Contents/MacOS/engines"
+          mkdir -p "$ENGINES_DIR"
+          cp /opt/homebrew/bin/qemu-system-* "$ENGINES_DIR/"
+          cp /opt/homebrew/bin/qemu-img "$ENGINES_DIR/"
+          chmod +x "$ENGINES_DIR/"*
+          
           ln -s /Applications "$DMG_TEMP/Applications"
           VERSION=${GITHUB_REF_NAME:-1.0.0}
           hdiutil create -volname "VMStart" \
@@ -77,13 +85,11 @@ jobs:
             
             ### Requirements
             - macOS 14.0 or later
-            - QEMU (`brew install qemu`)
             
             ### Installation
             1. Download the DMG file
             2. Drag VMStart.app to Applications
-            3. Install QEMU: `brew install qemu`
-            4. Launch VMStart
+            3. Launch VMStart (QEMU is included)
             
             ### License
             GPLv2 - See LICENSE file
