@@ -112,6 +112,14 @@ jobs:
           cd VMStart-Windows/VMStart
           dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o ../../publish
 
+      - name: Download QEMU for Windows
+        run: |
+          mkdir -p publish/engines
+          curl -L "https://github.com/qemu/qemu/releases/download/v9.1.0/qemu-9.1.0-windows-x86_64.zip" -o qemu-windows.zip
+          powershell -Command "Expand-Archive -Path qemu-windows.zip -DestinationPath . -Force"
+          cp qemu-9.1.0/qemu-system-*.exe publish/engines/
+          cp qemu-9.1.0/qemu-img.exe publish/engines/
+
       - name: Upload EXE Artifact
         uses: actions/upload-artifact@v4
         with:
