@@ -112,20 +112,6 @@ jobs:
           cd VMStart-Windows/VMStart
           dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o ../../publish
 
-      - name: Install QEMU for Windows
-        run: |
-          winget install -e --id SoftwareFreedomConservancy.QEMU --accept-source-agreements --accept-package-agreements || true
-          # Copy QEMU binaries
-          mkdir -p publish/engines
-          cp "/c/Program Files/qemu/qemu-system-*.exe" publish/engines/ 2>/dev/null || true
-          cp "/c/Program Files/qemu/qemu-img.exe" publish/engines/ 2>/dev/null || true
-          # If winget failed, download from alternative source
-          if [ ! -f publish/engines/qemu-img.exe ]; then
-            curl -L "https://qemu.weilnetz.de/w64/2024/qemu-w64-setup-20241026.exe" -o qemu-setup.exe
-            # Extract using 7z or skip
-            echo "QEMU installation skipped - will use bundled version"
-          fi
-
       - name: Upload EXE Artifact
         uses: actions/upload-artifact@v4
         with:
